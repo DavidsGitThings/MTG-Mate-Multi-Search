@@ -21,5 +21,6 @@ public class MultiSearchTextProcessor implements ActionListener{
 
         // Print the list (or process it as needed)
         System.out.println("Stored Strings: " + stringList);
+        MultiSearchTabCreator.openMultipleTabs(stringList);
     }
 }

@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class MultiSearchUI {
-    public void RenderMultiSearchUI() {
+    public void renderMultiSearchUI() {
         // Create the frame
         JFrame frame = new JFrame("Open Google");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

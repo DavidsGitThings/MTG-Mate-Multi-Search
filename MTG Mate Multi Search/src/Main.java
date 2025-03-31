@@ -3,6 +3,6 @@ public class Main {
         //creating instance of googleOpenerUI class
         MultiSearchUI multiSearchUI = new MultiSearchUI();
         //Calling the method
-        multiSearchUI.RenderMultiSearchUI();
+        multiSearchUI.renderMultiSearchUI();
     }
 }
