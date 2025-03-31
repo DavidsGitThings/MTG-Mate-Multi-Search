@@ -1,5 +1,8 @@
 public class Main {
     public static void main(String[] args) {
-        OpenGoogleTab.openGoogleInChrome(); // Calls the method to open Google
+        //creating instance of googleOpenerUI class
+        GoogleOpenerUI googleOpenerUI = new GoogleOpenerUI();
+        //Calling the method
+        googleOpenerUI.OpenGoogleOpenerUI();
     }
 }
