@@ -1,10 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-public class GoogleOpenerUI {
-    public void OpenGoogleOpenerUI() {
+public class MultiSearchUI {
+    public void RenderMultiSearchUI() {
         // Create the frame
         JFrame frame = new JFrame("Open Google");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -18,7 +16,7 @@ public class GoogleOpenerUI {
         gbc.weightx = 1.0;
 
         // Create label
-        JLabel label = new JLabel("MTG Mate Multi-Search 1.0", SwingConstants.CENTER);
+        JLabel label = new JLabel("Hello World", SwingConstants.CENTER);
         label.setFont(new Font("Arial", Font.BOLD, 50));
         gbc.gridx = 0;
         gbc.gridy = 0;
@@ -36,17 +34,12 @@ public class GoogleOpenerUI {
         frame.add(scrollPane, gbc);
 
         // Create the button
-        JButton button = new JButton("Open Google");
+        JButton button = new JButton("Process Text");
         gbc.gridx = 0;
         gbc.gridy = 2;
 
         // Add action listener to the button
-        button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                OpenGoogleTab.openGoogleInChrome(); // Calls the method to open Google
-            }
-        });
+        button.addActionListener(new MultiSearchTextProcessor(textArea));
 
         // Add button to the frame with centered layout
         frame.add(button, gbc);

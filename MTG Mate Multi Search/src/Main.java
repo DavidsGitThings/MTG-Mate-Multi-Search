@@ -1,8 +1,8 @@
 public class Main {
     public static void main(String[] args) {
         //creating instance of googleOpenerUI class
-        GoogleOpenerUI googleOpenerUI = new GoogleOpenerUI();
+        MultiSearchUI multiSearchUI = new MultiSearchUI();
         //Calling the method
-        googleOpenerUI.OpenGoogleOpenerUI();
+        multiSearchUI.RenderMultiSearchUI();
     }
 }
