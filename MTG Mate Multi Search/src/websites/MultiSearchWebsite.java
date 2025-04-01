@@ -1,4 +1,4 @@
-package MultiSearchWebsites;
+package websites;
 
 public abstract class MultiSearchWebsite {
     //Variable(s)

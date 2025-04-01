@@ -1,12 +1,20 @@
+import boxes.TextBox;
+import buttons.ButtonPanel;
+import buttons.SearchButton;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class MultiSearchUI {
+    private JButton button1, button2;
+    private ImageIcon icon1, icon2;
+    private ImageIcon greyedIcon1, greyedIcon2;
+
     public void renderMultiSearchUI() {
         // Create the frame
         JFrame frame = new JFrame("Open Google");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1000, 600);
+        frame.setSize(1000, 800);
         frame.setLayout(new GridBagLayout()); // Use GridBagLayout to center components
 
         // Create layout constraints
@@ -16,33 +24,30 @@ public class MultiSearchUI {
         gbc.weightx = 1.0;
 
         // Create label
-        JLabel label = new JLabel("Hello World", SwingConstants.CENTER);
+        JLabel label = new JLabel("MTG Card Multi-Search", SwingConstants.CENTER);
         label.setFont(new Font("Arial", Font.BOLD, 50));
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.anchor = GridBagConstraints.CENTER;
         frame.add(label, gbc);
 
-        // Create the text area with a scrollbar
-        JTextArea textArea = new JTextArea(10, 15);
-        textArea.setLineWrap(true);
-        textArea.setWrapStyleWord(true);
-        textArea.setRows(20); // Set max lines to 20
-        JScrollPane scrollPane = new JScrollPane(textArea);
+        // Create an instance of the ButtonPanel
+        ButtonPanel buttonPanel = new ButtonPanel();
         gbc.gridx = 0;
         gbc.gridy = 1;
-        frame.add(scrollPane, gbc);
+        frame.add(buttonPanel, gbc);
 
-        // Create the button
-        JButton button = new JButton("Process Text");
+        // Create an instance of the TextBox
+        TextBox textBox = new TextBox();
         gbc.gridx = 0;
         gbc.gridy = 2;
+        frame.add(textBox, gbc);
 
-        // Add action listener to the button
-        button.addActionListener(new MultiSearchTextProcessor(textArea));
-
-        // Add button to the frame with centered layout
-        frame.add(button, gbc);
+        // Create an instance of the SearchBox
+        JButton searchButton = SearchButton.createSearchButton(new MultiSearchTextProcessor(textBox.getText()));
+        gbc.gridx = 0;
+        gbc.gridy = 3;
+        frame.add(searchButton, gbc);
 
         // Make the frame visible
         frame.setVisible(true);

@@ -1,4 +1,4 @@
-package MultiSearchWebsites;
+package websites;
 
 public class CardKingdom extends MultiSearchWebsite{
     public CardKingdom(String websiteURL) {

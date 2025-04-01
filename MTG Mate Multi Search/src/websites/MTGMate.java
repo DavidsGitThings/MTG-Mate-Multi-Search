@@ -1,4 +1,4 @@
-package MultiSearchWebsites;
+package websites;
 
 public class MTGMate extends MultiSearchWebsite{
     public MTGMate(String websiteURL) {
