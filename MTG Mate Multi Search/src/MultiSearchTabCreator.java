@@ -36,9 +36,4 @@ public class MultiSearchTabCreator {
             e.printStackTrace();
         }
     }
-
-    public static void main(String[] args) {
-        List<String> searchQueries = List.of("Breeding Pool", "Blood Crypt", "OpenAI ChatGPT");
-        openMultipleTabs(searchQueries);
-    }
 }

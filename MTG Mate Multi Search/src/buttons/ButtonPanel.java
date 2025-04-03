@@ -14,6 +14,8 @@ public class ButtonPanel extends JPanel {
     private List<JButton> buttons = new ArrayList<>();
     private List<ImageIcon> originalIcons = new ArrayList<>();
     private List<ImageIcon> greyedIcons = new ArrayList<>();
+    private List<MultiSearchWebsite> websitesList = new ArrayList<>();
+    private int selectedIndex = 0;
 
     public ButtonPanel(MultiSearchWebsite[] websites) {
         setLayout(new FlowLayout());
@@ -24,12 +26,13 @@ public class ButtonPanel extends JPanel {
             ImageIcon greyedIcon = GrayscaleFilter.createGreyedImageIcon(originalIcon);
 
             JButton button = new JButton(greyedIcon);
-            setupButton(button, originalIcon, greyedIcon);
+            setupButton(button, originalIcon, greyedIcon, websitesList.size());
             add(button);
 
             buttons.add(button);
             originalIcons.add(originalIcon);
             greyedIcons.add(greyedIcon);
+            websitesList.add(website);
         }
 
         // Set the first button as active and disable others initially
@@ -40,7 +43,7 @@ public class ButtonPanel extends JPanel {
         }
     }
 
-    private void setupButton(JButton button, ImageIcon originalIcon, ImageIcon greyedIcon) {
+    private void setupButton(JButton button, ImageIcon originalIcon, ImageIcon greyedIcon, int index) {
         button.setPreferredSize(new Dimension(100, 100));
         button.setBorderPainted(false);
         button.setFocusPainted(false);
@@ -63,9 +66,13 @@ public class ButtonPanel extends JPanel {
                 button.setDisabledIcon(originalIcon);
                 button.setEnabled(false);
 
+                selectedIndex = index;
                 System.out.println("Button clicked: " + originalIcon.getDescription());
             }
         });
     }
-}
 
+    public MultiSearchWebsite getSelectedWebsite() {
+        return websitesList.get(selectedIndex);
+    }
+}
