@@ -1,6 +1,9 @@
 import boxes.TextBox;
 import buttons.ButtonPanel;
 import buttons.SearchButton;
+import websites.CardKingdom;
+import websites.MTGMate;
+import websites.MultiSearchWebsite;
 
 import javax.swing.*;
 import java.awt.*;
@@ -32,10 +35,29 @@ public class MultiSearchUI {
         frame.add(label, gbc);
 
         // Create an instance of the ButtonPanel
-        ButtonPanel buttonPanel = new ButtonPanel();
+
+        // Create new instance of websites to be added to the panel
+        MultiSearchWebsite CardKingdom = new CardKingdom();
+        MultiSearchWebsite MTGMate = new MTGMate();
+
+        // Original Button Array
+        String[] buttonImages = {
+                MTGMate.getWebsiteImgDir(),
+                CardKingdom.getWebsiteImgDir()
+        };
+
+        //New Button Array
+        MultiSearchWebsite[] websiteArray = {
+                // Add each website class' instance
+                MTGMate,
+                CardKingdom
+        };
+
+        ButtonPanel buttonPanel = new ButtonPanel(websiteArray);
         gbc.gridx = 0;
         gbc.gridy = 1;
         frame.add(buttonPanel, gbc);
+
 
         // Create an instance of the TextBox
         TextBox textBox = new TextBox();

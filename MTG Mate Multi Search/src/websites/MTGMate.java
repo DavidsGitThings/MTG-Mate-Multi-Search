@@ -1,7 +1,8 @@
 package websites;
 
 public class MTGMate extends MultiSearchWebsite{
-    public MTGMate(String websiteURL) {
-        super("https://www.mtgmate.com.au/cards/");
+    public MTGMate() {
+        super("https://www.mtgmate.com.au/cards/",
+                "/websites/images/MTGMateLogo.jpg");
     }
 }
